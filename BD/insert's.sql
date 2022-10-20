@@ -3,34 +3,24 @@ USE `mydb` ;
 -- -----------------------------------------------------
 -- Table `mydb`.`tb_usuarios`
 -- -----------------------------------------------------
-SELECT * FROM tb_usuarios;
-
 INSERT INTO tb_usuarios (nome_usuario, email_usuario, senha_usuario)
 VALUES ('Alan Siqueira Matias', 'alamm.hhh@gmail.com', '1234');
-
-
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_usuarios` (
-  `id_usuario` INT NOT NULL AUTO_INCREMENT,
-  `email_usuario` VARCHAR(255) NULL,
-  `senha_usuario` VARCHAR(255) NULL,
-  PRIMARY KEY (`id_usuario`))
-ENGINE = MyISAM;
-
+SELECT * FROM tb_usuarios;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`tb_endereco`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_endereco` (
-  `id_endereco` INT NOT NULL,
-  `cep_endereco` INT NULL,
-  `end_endereco` VARCHAR(255) NULL,
-  PRIMARY KEY (`id_endereco`))
-ENGINE = InnoDB;
-
+INSERT INTO tb_endereco (cep_endereco, end_endereco)
+VALUES ('62300000', 'Rua 123');
+SELECT * FROM tb_endereco;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`tb_produtos`
 -- -----------------------------------------------------
+INSERT INTO tb_produtos (cep_endereco, end_endereco)
+VALUES ('62300000', 'Rua 123');
+SELECT * FROM tb_produtos;
+
 CREATE TABLE IF NOT EXISTS `mydb`.`tb_produtos` (
   `id_produto` INT NOT NULL AUTO_INCREMENT,
   `nome_produto` VARCHAR(255) NULL,

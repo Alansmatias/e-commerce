@@ -33,7 +33,7 @@ ENGINE = MyISAM;
 -- Table `mydb`.`tb_endereco`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`tb_endereco` (
-  `id_endereco` INT NOT NULL,
+  `id_endereco` INT NOT NULL AUTO_INCREMENT,
   `cep_endereco` INT NULL,
   `end_endereco` VARCHAR(255) NULL,
   PRIMARY KEY (`id_endereco`))

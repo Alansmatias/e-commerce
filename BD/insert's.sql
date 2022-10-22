@@ -11,68 +11,60 @@ SELECT * FROM tb_usuarios;
 -- Table `mydb`.`tb_endereco`
 -- -----------------------------------------------------
 INSERT INTO tb_endereco (cep_endereco, end_endereco)
-VALUES ('62300000', 'Rua 123');
+VALUES (62300000, 'Rua 123');
 SELECT * FROM tb_endereco;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`tb_produtos`
 -- -----------------------------------------------------
-INSERT INTO tb_produtos (cep_endereco, end_endereco)
-VALUES ('62300000', 'Rua 123');
+INSERT INTO tb_produtos (nome_produto, descricao_produto, valor_produto, estoque_produto)
+VALUES ('Semente de Canabis', 'Cresce rapido', 10, 5);
 SELECT * FROM tb_produtos;
-
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_produtos` (
-  `id_produto` INT NOT NULL AUTO_INCREMENT,
-  `nome_produto` VARCHAR(255) NULL,
-  `descicao_produto` VARCHAR(255) NULL,
-  `valor_produto` DECIMAL(20) NULL,
-  `estoque_produto` INT NULL,
-  PRIMARY KEY (`id_produto`))
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mydb`.`tb_listaProdutos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_listaProdutos` (
-  `id_listaProdutos` INT NOT NULL AUTO_INCREMENT,
-  `id_produtos` INT NULL,
-  PRIMARY KEY (`id_listaProdutos`),
-  INDEX `fk_listaprod_produtos_idx` (`id_produtos` ASC),
-  CONSTRAINT `fk_listaprod_produtos`
-    FOREIGN KEY (`id_produtos`)
-    REFERENCES `mydb`.`tb_produtos` (`id_produto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
+INSERT INTO tb_listaProdutos (id_produtos)
+VALUES (1);
+SELECT * FROM tb_listaProdutos;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`tb_pedidos`
 -- -----------------------------------------------------
+INSERT INTO tb_pedidos (id_usuario, id_listaProdutos, id_endereco, Valor_pedido)
+VALUES (1, 1, 1, 10);
+show tables;
+
+SELECT * FROM tb_endereco;
+SELECT * FROM tb_listaprodutos;
+SELECT * FROM tb_pedidos;
+SELECT * FROM tb_produtos;
+SELECT * FROM tb_usuarios;
+
+
 CREATE TABLE IF NOT EXISTS `mydb`.`tb_pedidos` (
-  `id_pedido` INT NOT NULL AUTO_INCREMENT,
-  `id_usuario` INT NULL,
-  `id_listaProdutos` INT NULL,
-  `id_endereco` INT NULL,
-  `Valor_pedido` DECIMAL(20) NULL,
-  PRIMARY KEY (`id_pedido`),
-  INDEX `fk_tb_pedidos_tb_usuarios` (`id_usuario` ASC),
-  INDEX `fk_tb_pedidos_tb_endereco` (`id_endereco` ASC),
-  INDEX `fk_tb_pedidos_tb_listaProdutos` (`id_listaProdutos` ASC),
-  CONSTRAINT `fk_tb_pedidos_tb_usuarios`
-    FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`tb_usuarios` (`id_usuario`)
+  id_pedido INT AUTO_INCREMENT,
+  id_usuario INT,
+  id_listaProdutos INT,
+  id_endereco INT,
+  Valor_pedido DECIMAL(20) NULL,
+  PRIMARY KEY (id_pedido),
+  INDEX fk_tb_pedidos_tb_usuarios (id_usuario ASC),
+  INDEX fk_tb_pedidos_tb_endereco (id_endereco ASC),
+  INDEX fk_tb_pedidos_tb_listaProdutos (id_listaProdutos ASC),
+  CONSTRAINT fk_tb_pedidos_tb_usuarios
+    FOREIGN KEY (id_usuario)
+    REFERENCES tb_usuarios (id_usuario)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_pedidos_tb_endereco`
-    FOREIGN KEY (`id_endereco`)
-    REFERENCES `mydb`.`tb_endereco` (`id_endereco`)
+  CONSTRAINT fk_tb_pedidos_tb_endereco
+    FOREIGN KEY (id_endereco)
+    REFERENCES tb_endereco (id_endereco)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_pedidos_tb_listaProdutos`
-    FOREIGN KEY (`id_listaProdutos`)
-    REFERENCES `mydb`.`tb_listaProdutos` (`id_listaProdutos`)
+  CONSTRAINT fk_tb_pedidos_tb_listaProdutos
+    FOREIGN KEY (id_listaProdutos)
+    REFERENCES tb_listaProdutos (id_listaProdutos)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

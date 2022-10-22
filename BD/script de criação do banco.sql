@@ -46,7 +46,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`tb_produtos` (
   `id_produto` INT NOT NULL AUTO_INCREMENT,
   `nome_produto` VARCHAR(255) NULL,
-  `descicao_produto` VARCHAR(255) NULL,
+  `descricao_produto` VARCHAR(255) NULL,
   `valor_produto` DECIMAL(20) NULL,
   `estoque_produto` INT NULL,
   PRIMARY KEY (`id_produto`))
@@ -72,32 +72,33 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`tb_pedidos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`tb_pedidos` (
-  `id_pedido` INT NOT NULL AUTO_INCREMENT,
-  `id_usuario` INT NULL,
-  `id_listaProdutos` INT NULL,
-  `id_endereco` INT NULL,
-  `Valor_pedido` DECIMAL(20) NULL,
-  PRIMARY KEY (`id_pedido`),
-  INDEX `fk_tb_pedidos_tb_usuarios` (`id_usuario` ASC),
-  INDEX `fk_tb_pedidos_tb_endereco` (`id_endereco` ASC),
-  INDEX `fk_tb_pedidos_tb_listaProdutos` (`id_listaProdutos` ASC),
-  CONSTRAINT `fk_tb_pedidos_tb_usuarios`
-    FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`tb_usuarios` (`id_usuario`)
+CREATE TABLE tb_pedidos(
+  id_pedido INT AUTO_INCREMENT,
+  id_usuario INT,
+  id_listaProdutos INT,
+  id_endereco INT,
+  Valor_pedido DECIMAL(20) NULL,
+  PRIMARY KEY (id_pedido),
+  INDEX fk_tb_pedidos_tb_usuarios (id_usuario ASC),
+  INDEX fk_tb_pedidos_tb_endereco (id_endereco ASC),
+  INDEX fk_tb_pedidos_tb_listaProdutos (id_listaProdutos ASC),
+  CONSTRAINT fk_tb_pedidos_tb_usuarios
+    FOREIGN KEY (id_usuario)
+    REFERENCES tb_usuarios (id_usuario)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_pedidos_tb_endereco`
-    FOREIGN KEY (`id_endereco`)
-    REFERENCES `mydb`.`tb_endereco` (`id_endereco`)
+  CONSTRAINT fk_tb_pedidos_tb_endereco
+    FOREIGN KEY (id_endereco)
+    REFERENCES tb_endereco (id_endereco)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_pedidos_tb_listaProdutos`
-    FOREIGN KEY (`id_listaProdutos`)
-    REFERENCES `mydb`.`tb_listaProdutos` (`id_listaProdutos`)
+  CONSTRAINT fk_tb_pedidos_tb_listaProdutos
+    FOREIGN KEY (id_listaProdutos)
+    REFERENCES tb_listaProdutos (id_listaProdutos)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

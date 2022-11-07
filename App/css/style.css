@@ -8224,10 +8224,10 @@ h1, h2, h3, h4, h5,
       -webkit-transition: none;
       -o-transition: none;
       transition: none; } }
-  @media (min-width: 992px) {
+  @media (min-width: 1297px) {
     #colorlib-aside {
       width: 20%; } }
-  @media (max-width: 991.98px) {
+  @media (max-width: 1296px) {
     #colorlib-aside {
       width: 270px;
       -moz-transform: translateX(-270px);
@@ -8312,10 +8312,13 @@ h1, h2, h3, h4, h5,
       -webkit-transition: none;
       -o-transition: none;
       transition: none; } }
-  @media (min-width: 992px) {
+  @media (min-width: 1298px) {
     #colorlib-main {
       width: 80%;
-      height: 100vh } }
+      height: 100vh;
+      float: right;
+      overflow-y: scroll;} }
+      
 
 .colorlib-nav-toggle {
   cursor: pointer;
@@ -8421,8 +8424,9 @@ h1, h2, h3, h4, h5,
       -webkit-transition: none;
       -o-transition: none;
       transition: none; } }
-  @media (max-width: 991.98px) {
+  @media (max-width: 1298px) {
     .colorlib-nav-toggle {
       opacity: 1;
       visibility: visible; } }
+
 

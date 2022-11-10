@@ -19,13 +19,9 @@
 					<li class="colorlib-active" style="white-space: nowrap"><a class="text-light" href="#"><i class="fa-solid fa-clipboard-list"></i> PEDIDOS</a></li>
 		    		<li style="white-space: nowrap"><a class="text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"><i class="fa-solid fa-box-open"></i> PRODUTO</a>
 		    		<div class="dropdown-menu text-light bg-secondary" aria-labelledby="navbarDropdown" style="padding: 0;">
-		          		<a class="text-light m-2 row" href="#" style="white-space: nowrap">CADASTRAR</a>
+		          		<a class="text-light m-2 row" href="index.php?page=1" style="white-space: nowrap">CADASTRAR</a>
 		          		<a class="text-light m-2 row" href="#" style="white-space: nowrap">EDITAR</a>
 					<li><a class="text-light" href="#" style="white-space: nowrap"><i class="fa-solid fa-comments"></i> COMENTÁRIOS</a></li>
-
-
-
-
 
 
 
@@ -35,18 +31,27 @@
 
 		<div id="colorlib-main" class="bg-white">
 			<?php
-				include 'cadastroProduto.php';
+				if (empty($_GET)) {
+				}else{
+				switch ($_GET['page']) {
+					case 1:
+						include 'cadastroProduto.php';
+						break;
+					default:
+						break;
+				}
+				}
+				
 			?>
 		</div><!-- END COLORLIB-MAIN -->
 	</div><!-- END COLORLIB-PAGE -->
 
 	</section>
-
 	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="https://kit.fontawesome.com/791479aa38.js" crossorigin="anonymous"></script>
+  	<script src="js/popper.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+  	<script src="js/main.js"></script>
+  	<script src="https://kit.fontawesome.com/791479aa38.js" crossorigin="anonymous"></script>
 
 	</body>
 </html>

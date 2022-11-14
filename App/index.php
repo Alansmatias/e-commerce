@@ -16,11 +16,13 @@
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight bg-dark">
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li class="colorlib-active" style="white-space: nowrap"><a class="text-light" href="#"><i class="fa-solid fa-clipboard-list"></i> PEDIDOS</a></li>
-		    		<li style="white-space: nowrap"><a class="text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"><i class="fa-solid fa-box-open"></i> PRODUTO</a>
+					<li class="" style="white-space: nowrap"><a class="text-light" href="?page=pedidos" id="testeg"><i class="fa-solid fa-clipboard-list"></i> PEDIDOS</a></li>
+		    		<li class="" style="white-space: nowrap"><a class="text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"><i class="fa-solid fa-box-open"></i> PRODUTO</a>
 		    		<div class="dropdown-menu text-light bg-secondary" aria-labelledby="navbarDropdown" style="padding: 0;">
-		          		<a class="text-light m-2 row" href="index.php?page=1" style="white-space: nowrap">CADASTRAR</a>
+						<a class="text-light m-2 row" href="?page=cadastrarproduto" style="white-space: nowrap">CADASTRAR</a>
 		          		<a class="text-light m-2 row" href="#" style="white-space: nowrap">EDITAR</a>
+					</div>
+					</li>
 					<li><a class="text-light" href="#" style="white-space: nowrap"><i class="fa-solid fa-comments"></i> COMENTÁRIOS</a></li>
 
 
@@ -31,11 +33,19 @@
 
 		<div id="colorlib-main" class="bg-white">
 			<?php
-				if (empty($_GET)) {
+				include("config.php");
+
+				if (empty($_REQUEST)) {
 				}else{
-				switch ($_GET['page']) {
-					case 1:
+				switch ($_REQUEST['page']) {
+					case "cadastrarproduto":
 						include 'cadastroProduto.php';
+						break;
+					case "pedidos":
+						include 'pedidos.php';
+						break;
+					case "salvar":
+						include 'salvar-produto.php';
 						break;
 					default:
 						break;

@@ -7,12 +7,29 @@
     $qtd =  $res->num_rows;
 
     if($qtd > 0 ){
+        print "<table class='table>";
+        print '
+        <thead class="table-secondary table-bordered">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">NOME</th>
+          <th scope="col">DESCIÇÃO</th>
+          <th scope="col">VALOR</th>
+          <th scope="col">ESTOQUE</th>
+        </tr>
+      </thead> ';
+        print "<tbody>";
         while($row = $res->fetch_object()){
-            print $row->nome_produto;
-            print $row->descricao_produto;
-            print $row->valor_produto;
-            print $row->estoque_produto;
+            print "<tr>";
+            print "<td>".$row->id_produto."</td>";
+            print "<td>".$row->nome_produto."</td>";
+            print "<td>".$row->descricao_produto."</td>";
+            print "<td>".$row->valor_produto."</td>";
+            print "<td>".$row->estoque_produto."</td>";
+            print "</tr>";
         }
+        print "</tbody>";
+        print "</table>";
     }else{
         echo("<h1> Nenhum Resultado Encontrado </h1>");
     };

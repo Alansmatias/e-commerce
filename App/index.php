@@ -2,6 +2,7 @@
 <html lang="pt-BR">
   <head>
   	<title>Semestes da Serra</title>
+	<meta name="author" content="Alan Siqueira Matias">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

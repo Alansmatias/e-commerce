@@ -22,6 +22,7 @@
 		    		<div class="dropdown-menu text-light bg-secondary" aria-labelledby="navbarDropdown" style="padding: 0;">
 						<a class="text-light m-2 row" href="?page=cadastrarproduto" style="white-space: nowrap">CADASTRAR</a>
 		          		<a class="text-light m-2 row" href="#" style="white-space: nowrap">EDITAR</a>
+						<a class="text-light m-2 row" href="?page=listaprodutos" style="white-space: nowrap">LISTA</a>
 					</div>
 					</li>
 					<li><a class="text-light" href="#" style="white-space: nowrap"><i class="fa-solid fa-comments"></i> COMENTÁRIOS</a></li>
@@ -47,6 +48,9 @@
 						break;
 					case "salvar":
 						include 'salvar-produto.php';
+						break;
+					case "listaprodutos":
+						include 'listaprodutos.php';
 						break;
 					default:
 						break;

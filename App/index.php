@@ -1,73 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-  	<title>Semestes da Serra</title>
+<head>
+    <title>Semestes da Serra</title>
 	<meta name="author" content="Alan Siqueira Matias">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style-index.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand ttest" href="#"><i class="fa-solid fa-seedling"></i> Sementes da Serra</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-	</head>
-	<body>
-	<div id="colorlib-page">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" style="background: white;"><i></i></a>
-		<aside id="colorlib-aside" role="complementary" class="js-fullheight bg-dark">
-			<nav id="colorlib-main-menu" role="navigation">
-				<ul>
-					<li class="" style="white-space: nowrap"><a class="text-light" href="?page=pedidos" id="testeg"><i class="fa-solid fa-clipboard-list"></i> PEDIDOS</a></li>
-		    		<li class="" style="white-space: nowrap"><a class="text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"><i class="fa-solid fa-box-open"></i> PRODUTO</a>
-		    		<div class="dropdown-menu text-light bg-secondary" aria-labelledby="navbarDropdown" style="padding: 0;">
-						<a class="text-light m-2 row" href="?page=cadastrarproduto" style="white-space: nowrap">CADASTRAR</a>
-		          		<a class="text-light m-2 row" href="#" style="white-space: nowrap">EDITAR</a>
-						<a class="text-light m-2 row" href="?page=listaprodutos" style="white-space: nowrap">LISTA</a>
-					</div>
-					</li>
-					<li><a class="text-light" href="#" style="white-space: nowrap"><i class="fa-solid fa-comments"></i> COMENTÁRIOS</a></li>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-lg-0" style="justify-content: end; flex: auto;">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Cradastrar</a>
+        </li>
+        <li class="nav-item" style="margin-right: 10px;">
+            <a class="nav-link" href="#">Entre</a>
+        </li>
+        </ul>
+    </div>
+    </nav>
+    <div class="row pb-1" style="background-color: #e3f2fd; margin: 0; justify-content: center;">
+        <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar Semente" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>
 
-
-
-				</ul>
-			</nav>
-		</aside> <!-- END COLORLIB-ASIDE -->
-
-		<div id="colorlib-main" class="bg-white">
-			<?php
-				include("config.php");
-
-				if (empty($_REQUEST)) {
-				}else{
-				switch ($_REQUEST['page']) {
-					case "cadastrarproduto":
-						include 'cadastroProduto.php';
-						break;
-					case "pedidos":
-						include 'pedidos.php';
-						break;
-					case "salvar":
-						include 'salvar-produto.php';
-						break;
-					case "listaprodutos":
-						include 'listaprodutos.php';
-						break;
-					default:
-						break;
-				}
-				}
-				
-			?>
-		</div><!-- END COLORLIB-MAIN -->
-	</div><!-- END COLORLIB-PAGE -->
-
-	</section>
-	<script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
   	<script src="js/popper.js"></script>
   	<script src="js/bootstrap.min.js"></script>
   	<script src="js/main.js"></script>
-  	<script src="https://kit.fontawesome.com/791479aa38.js" crossorigin="anonymous"></script>
-
-	</body>
+    <script src="https://kit.fontawesome.com/791479aa38.js" crossorigin="anonymous"></script>
+</body>
 </html>
-
